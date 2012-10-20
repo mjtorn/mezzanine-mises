@@ -261,6 +261,7 @@ INSTALLED_APPS = (
     #"mezzanine.accounts",
     #"mezzanine.mobile",
     'south',
+    'ckeditor',
     'mises',
 )
 
@@ -352,7 +353,7 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 RICHTEXT_WIDGET_CLASS = 'ckeditor.widgets.CKEditorWidget'
 RICHTEXT_FILTER_LEVEL = 3
 
-CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
+CKEDITOR_UPLOAD_PATH = '%s/upload/' % MEDIA_ROOT
 
 DEFAULT_FROM_ADDRESS = 'staff@mises.fi'
 DEFAULT_FROM_EMAIL = 'staff@mises.fi'
