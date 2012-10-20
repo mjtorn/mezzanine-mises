@@ -2,6 +2,8 @@ from django.contrib.auth import models as auth_models
 
 from django.db import models
 
+from mezzanine.blog import models as blog_models
+
 import hashlib
 
 import random
@@ -57,6 +59,26 @@ class Slogan(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.slogan
+
+
+class BlogPostExtra(models.Model):
+    """Take the query overhead instead of dealing with south kludges
+    """
+
+    blog_post = models.OneToOneField(blog_models.BlogPost)
+
+    co_author = models.ForeignKey(auth_models.User, null=True, blank=True, default=None, verbose_name='Co-Author', related_name='coauthor')
+    updated_at = models.DateTimeField(verbose_name='Updated at', auto_now=True)
+
+
+def blogpostextra_creator(sender, instance, created, **kwargs):
+    """Create extra data for blog post
+    """
+
+    if created:
+        BlogPostExtra.objects.create(blog_post_id=instance.id)
+
+models.signals.post_save.connect(blogpostextra_creator, sender=blog_models.BlogPost, dispatch_uid='blogpostextra_creation')
 
 # EOF
 
