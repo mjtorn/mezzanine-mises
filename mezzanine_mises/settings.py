@@ -343,6 +343,18 @@ DEBUG_TOOLBAR_CONFIG = {"INTERCEPT_REDIRECTS": False}
 # }
 
 
+###################
+# CUSTOM SETTINGS #
+###################
+
+RICHTEXT_WIDGET_CLASS = 'ckeditor.widgets.CKEditorWidget'
+RICHTEXT_FILTER_LEVEL = 3
+
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT
+
+DEFAULT_FROM_ADDRESS = 'staff@mises.fi'
+DEFAULT_FROM_EMAIL = 'staff@mises.fi'
+
 ##################
 # LOCAL SETTINGS #
 ##################
