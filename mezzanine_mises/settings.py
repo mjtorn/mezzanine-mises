@@ -71,8 +71,8 @@
 # )
 
 # Setting to turn on featured images for blog posts. Defaults to False.
-#
-# BLOG_USE_FEATURED_IMAGE = True
+
+BLOG_USE_FEATURED_IMAGE = True
 
 # If ``True``, users will be automatically redirected to HTTPS
 # for the URLs specified by the ``SSL_FORCE_URL_PREFIXES`` setting.
