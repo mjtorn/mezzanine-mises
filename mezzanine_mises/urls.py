@@ -67,7 +67,7 @@ urlpatterns = patterns("",
     # WILL NEVER BE MATCHED!
 
     (r'^ckeditor/', include('ckeditor.urls')),
-    url('^user/([a-z0-9@]+)', views.user, name='user'),
+    url('^user/([A-Za-z0-9@]+)', views.user, name='user'),
 
     url('^', include(auth_urls)),
 
