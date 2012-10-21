@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load mezzanine_tags %}
-{% block content %}
+{% block main %}
     {% pagination_for blog_posts %}
                 {% for post in blog_posts.object_list %}
                     <div class="box blogteaser">
@@ -34,5 +34,5 @@
                         </div>
                     </div>
                 {% endfor %}
-{% endblock content %}
+{% endblock main %}
 
