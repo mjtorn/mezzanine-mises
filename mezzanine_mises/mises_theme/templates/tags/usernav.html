@@ -3,7 +3,7 @@
         {% if user.id %}
         <a href="{% url user user.username %}">Oma profiili</a>
         {% else %}
-        <a href="{% url register %}">Rekisteröidy</a>
+        <a href="#" style="text-decoration: line-through;">Rekisteröidy</a>
         {% endif %}
     </li>
     {% if user.is_staff %}
@@ -15,7 +15,7 @@
         {% if user.id %}
         <a href="{% url logout %}">Kirjaudu ulos</a>
         {% else %}
-        <a href="{% url login %}">Kirjaudu</a>
+        <a href="" style="text-decoration: line-through;">Kirjaudu</a>
         {% endif %}
     </li>
 </ul>
