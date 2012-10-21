@@ -1,0 +1,118 @@
+{% load misesfilters %}<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+        <title>
+            Mises-Instituutti{% if title %} · {{ title }}{% endif %}
+        </title>
+        <link href="{{ STATIC_URL }}css/screen.css" media="screen" type="text/css" rel="stylesheet" />
+        <link href="{{ STATIC_URL }}css/print.css" media="print" type="text/css" rel="stylesheet" />
+        <link href="{{ STATIC_URL }}css/DailyArticleStyles.css" media="print" type="text/css" rel="stylesheet" />
+
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+        <meta name="google-site-verification" content="o6gX3xhbFk82mI0yUVCbJwKOEOcWbowNYTYuCV_UgWg" />
+
+        {% block extra_head %}
+        {% endblock extra_head %}
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22074842-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+    </head>
+
+    <body class="wideside">
+        <div id="header">
+            <div class="container">
+                <h1 class="logo">
+                    <a href="{% url home %}">Ludwig von Mises -Instituutti</a>
+                </h1>
+                <p class="title" style="left: 136px;">
+                    Ludwig von Mises -Instituutti
+                    <em>{% random_slogan %}</em>
+                </p>
+                <p class="tagline" style="top: 60px">
+                    Vastustajat eivät minua lainkaan huolestuta. Totuus, jota olen etsinyt, on niin mieleinen, että tyydyn siihen, että olen saanut sanoa sen kansalaisilleni; se on liikkumaton, eikä pelkää, vaikka laineet vyöryttävät sappeansa sen päälle. Se kestää, vaikka omanvoitonpyynti hautaa sen pohjamutaan, jolla raivoavat aallot sen peittävät, mutta pysyy kuitenkin kaiken tämän keskellä vuorenlujana ja järkähtämättömänä. <em>-- Anders Chydenius</em>
+                </p>
+                {% include "tags/usernav.html" %}
+                <ul id="navigation">
+                    {% nav "home" "Etusivu" %}
+                    {% nav "home" "Artikkelit" %}
+                    {% nav "home" "Tietoa" %}
+                    {% nav "home" "Linkkejä" %}
+                    {% nav "home" "Tiedostoja/Media" %}
+                    {% nav "home" "Kauppa" %}
+                    {# this will be the current front page when we have more than blogs #}
+                    {% comment %}
+                    <li id="ctl00_ctl00_lnkABlog">
+                        <a href="{% url home %}">Blog</a>
+                    </li>
+                    {% endcomment %}
+                </ul>
+            </div>
+        </div>
+
+        <div class="container main">
+            {% if messages %}
+            <div style="padding-bottom: 10px;">
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <div id="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <div id="sidebar" style="margin-top: 20px;">
+
+                <div style="margin-bottom: 20px;">
+                    <p>
+                    <h3>-15% Libera-instituutin verkkokaupasta!</h3>
+                    Mises-instituutin sivujen lukijat saavat nyt -15%
+                    ostoksista <a href="http://kauppa.liberainstituutti.fi/">Libera-instituutin verkkokaupasta</a>
+                    koodilla <em>misesfi</em> &dash; eli laatukirjoja ostamaan!
+                    </p>
+                </div>
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5323649929757659";
+/* Mises medium rect */
+google_ad_slot = "1946554389";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+                {% block sidebar %}
+                {% endblock sidebar %}
+            </div>
+        </div>
+
+        <div id="footer">
+            <div class="container">
+                <div class="box">
+                    <p>Ludwig von Mises -Instituutti</p>
+                    <p>Yhteydenotot: <a href="mailto:staff@mises.fi">staff@mises.fi</a></p>
+                    <p><a href="/rss.xml"><img src="{{ STATIC_URL }}images/rss.jpg" alt="rss" /></a></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
