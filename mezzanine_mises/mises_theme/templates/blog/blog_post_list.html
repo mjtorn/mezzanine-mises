@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load mezzanine_tags %}
 {% block content %}
+    {% pagination_for blog_posts %}
                 {% for post in blog_posts.object_list %}
                     <div class="box blogteaser">
                         <div class="cont">
