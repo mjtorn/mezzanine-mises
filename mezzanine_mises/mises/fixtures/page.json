@@ -1,0 +1,122 @@
+[
+    {
+        "pk": 3, 
+        "model": "pages.page", 
+        "fields": {
+            "status": 2, 
+            "_order": 3, 
+            "titles": "Kauppa", 
+            "description": "Mises-instituutin kauppa\r", 
+            "parent": null, 
+            "title": "Kauppa", 
+            "short_url": null, 
+            "login_required": false, 
+            "site": 1, 
+            "keywords_string": "", 
+            "_meta_title": "", 
+            "expiry_date": null, 
+            "publish_date": "2012-10-21T18:42:29.726Z", 
+            "content_model": "richtextpage", 
+            "in_menus": "1", 
+            "slug": "kauppa", 
+            "gen_description": true
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "pages.page", 
+        "fields": {
+            "status": 2, 
+            "_order": 1, 
+            "titles": "Linkkej\u00e4", 
+            "description": "\r\n\r\nLinkkej\u00e4\r\n\r\n\r\n  Muiden maiden Mises-instituutit\r\n\r\n  \r\n    http://mises.org/, USA\r\n    http://mises.ca/, Kanada\r\n    http://mises.se/, Ruotsi\r\n    http://mises.ee/, Viro\r\n    http://mises.de, Saksa, ja It\u00e4valta ohjaa t\u00e4nne my\u00f6s\r\n    http://mises.pl/, Puola\r\n    http://mises.ru/, Ven\u00e4j\u00e4\r\n    http://mises.org.ua/, Ukraina\r\n    http://mises.ro/, Romania\r\n    http://mises.cz/, Tsekki ja Slovakia\r\n    http://mises.ch/, Sveitsi\r\n    http://institutomises.org/, Espanja\r\n    http://mises.org.pt/, Portugali\r\n    http://mises.org.br/, Brasilia\r\n    http://mises.ec/, Ecuador\r\n    http://mises.cl/, Chile\r\n    http://mises.org.il/, Israel\r\n    http://mises.jp/, Japani\r\n  ", 
+            "parent": null, 
+            "title": "Linkkej\u00e4", 
+            "short_url": null, 
+            "login_required": false, 
+            "site": 1, 
+            "keywords_string": "", 
+            "_meta_title": "", 
+            "expiry_date": null, 
+            "publish_date": "2012-10-21T18:41:08.113Z", 
+            "content_model": "richtextpage", 
+            "in_menus": "1", 
+            "slug": "links", 
+            "gen_description": true
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "pages.page", 
+        "fields": {
+            "status": 2, 
+            "_order": 2, 
+            "titles": "Tiedostoja/Media", 
+            "description": "\r\n\tTiedostoja/Media\r\n\r\n\t\r\n\t\tPatri Friedman / Helsinki 2011\r\n\t\r\n\t\tJaamme Patri Friedmanin puhetta Helsingiss&auml; 2011 sek&auml; H.264/AAC -muotoisena mkv-tiedostona ett&auml; Xvid/MP3 -muotoisena avi-tiedostona BitTorrent-verkkoa k&auml;ytt&auml;en. MKV-tiedostossa on valittavana sek&auml; englannin- ett&auml; suomenkieliset tekstit ja siin&auml; on kappalejako. Video on testattu eri k&auml;ytt&ouml;j&auml;rjestelmill&auml; mm. VLC-soittimella toimivaksi.\r\n\t\r\n\t\tVideon voi my&ouml;s katsoa Internetiss&auml; osoitteessa http://vimeo.com/mjtorn/seasteading-helsinki-2011 suomenkielisill&auml; teksteill&auml;.\r\n\t\r\n\t\t\r\n\t\t\t\r\n\t\t\t\thi-res mkv torrent w/ subs (todenn&auml;k&ouml;isesti haluamanne tiedosto)\r\n\t\t\t\r\n\t\t\t\tlo-res xvid (toimii varmasti kaikkialla, sis&auml;lt&auml;&auml; tekstitykset erillisiss&auml; tiedostoissa)\r\n\t\t\t\r\n\t\t\t\teng subs\r\n\t\t\t\r\n\t\t\t\tfin subs\r\n\t\t\t\r\n\t\t\t\tnfo\r\n\t\t", 
+            "parent": null, 
+            "title": "Tiedostoja/Media", 
+            "short_url": null, 
+            "login_required": false, 
+            "site": 1, 
+            "keywords_string": "", 
+            "_meta_title": "", 
+            "expiry_date": null, 
+            "publish_date": "2012-10-21T18:50:48Z", 
+            "content_model": "richtextpage", 
+            "in_menus": "1", 
+            "slug": "downloads", 
+            "gen_description": true
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "pages.page", 
+        "fields": {
+            "status": 2, 
+            "_order": 0, 
+            "titles": "Tietoa", 
+            "description": "\r\n\tSuomen Ludwig von Mises -Instituutti on yksil&ouml;noikeuksia ja -vapauksia puolustava markkinaliberaali instituutti, jonka teht&auml;viin kuuluu mm. edist&auml;&auml; tiet&auml;myst&auml; taloustieteen it&auml;valtalaisesta koulukunnasta ja etenkin sen perillisist&auml; ja parannuksista, sek&auml; ottaa kantaa yhteiskunnallisiin ja taloudellisiin aiheisiin.", 
+            "parent": null, 
+            "title": "Tietoa", 
+            "short_url": null, 
+            "login_required": false, 
+            "site": 1, 
+            "keywords_string": "", 
+            "_meta_title": "", 
+            "expiry_date": null, 
+            "publish_date": "2012-10-20T17:56:13Z", 
+            "content_model": "richtextpage", 
+            "in_menus": "1", 
+            "slug": "info", 
+            "gen_description": true
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "pages.richtextpage", 
+        "fields": {
+            "content": "<p>\r\n\tSuomen Ludwig von Mises -Instituutti on yksil&ouml;noikeuksia ja -vapauksia puolustava markkinaliberaali instituutti, jonka teht&auml;viin kuuluu mm. edist&auml;&auml; tiet&auml;myst&auml; taloustieteen it&auml;valtalaisesta koulukunnasta ja etenkin sen perillisist&auml; ja parannuksista, sek&auml; ottaa kantaa yhteiskunnallisiin ja taloudellisiin aiheisiin.</p>\r\n<p>\r\n\tInstituutin nimi tulee it&auml;valtalaiselta taloustieteilij&auml;lt&auml; Ludwig von Misesilt&auml;, joka oli yksi viime vuosisadan vaihteen suurista taloudellisista ja poliittisista ajattelijoista.</p>\r\n<p>\r\n\tToisen perustajan Oskar Lindmanin avajaisartikkeli on <a href=\"http://mises.fi/post/1/suomen-ludwig-von-mises--instituutti-nyt-auki\">t&auml;&auml;ll&auml;</a> ja Markus T&ouml;rnqvistin <a href=\"http://mises.fi/post/2/ludwig-von-mises-instituutti-avattu-suomessa\">t&auml;&auml;ll&auml;</a>.</p>\r\n"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "pages.richtextpage", 
+        "fields": {
+            "content": "<div>\r\n\r\n<h1>Linkkej\u00e4</h1>\r\n\r\n<div style=\"margin-top: 10px\">\r\n  <h2>Muiden maiden Mises-instituutit</h2>\r\n\r\n  <ul style=\"margin-top: 10px;\">\r\n    <li><a href=\"http://mises.org/\">http://mises.org/</a>, USA</li>\r\n    <li><a href=\"http://mises.ca/\">http://mises.ca/</a>, Kanada</li>\r\n    <li><a href=\"http://mises.se/\">http://mises.se/</a>, Ruotsi</li>\r\n    <li><a href=\"http://mises.ee/\">http://mises.ee/</a>, Viro</li>\r\n    <li><a href=\"http://mises.de/>http://mises.de</a>, Saksa, ja It\u00e4valta ohjaa t\u00e4nne my\u00f6s</li>\r\n    <li><a href=\"http://mises.pl/\">http://mises.pl/</a>, Puola</li>\r\n    <li><a href=\"http://mises.ru/\">http://mises.ru/</a>, Ven\u00e4j\u00e4</li>\r\n    <li><a href=\"http://mises.org.ua/\">http://mises.org.ua/</a>, Ukraina</li>\r\n    <li><a href=\"http://mises.ro/\">http://mises.ro/</a>, Romania</li>\r\n    <li><a href=\"http://mises.cz/\">http://mises.cz/</a>, Tsekki ja Slovakia</li>\r\n    <li><a href=\"http://mises.ch/\">http://mises.ch/</a>, Sveitsi</li>\r\n    <li><a href=\"http://institutomises.org/\">http://institutomises.org/</a>, Espanja</li>\r\n    <li><a href=\"http://mises.org.pt/\">http://mises.org.pt/</a>, Portugali</li>\r\n    <li><a href=\"http://mises.org.br/\">http://mises.org.br/</a>, Brasilia</li>\r\n    <li><a href=\"http://mises.ec/\">http://mises.ec/</a>, Ecuador</li>\r\n    <li><a href=\"http://mises.cl/\">http://mises.cl/</a>, Chile</li>\r\n    <li><a href=\"http://mises.org.il/\">http://mises.org.il/</a>, Israel</li>\r\n    <li><a href=\"http://mises.jp/\">http://mises.jp/</a>, Japani</li>\r\n  </ul>\r\n\r\n  <div style=\"padding: 10px;\">\r\n    Laitathan s\u00e4hk\u00f6postia osoitteeseen <a href=\"mailto:staff@mises.fi\">staff@mises.fi</a> jos huomaat jonkin puuttuvan.\r\n  </div>\r\n</div>\r\n\r\n<div style=\"margin-top: 10px;\">\r\n  <h2>Talous- ja liberalismiaiheisia sivuja</h2>\r\n\r\n  <ul style=\"margin-top: 10px;\">\r\n    <li><a href=\"http://decoy.iki.fi/l-diaries/libertarian-faq.fi\">Libertarismi-FAQ</a>, aloita t\u00e4st\u00e4</li>\r\n    <li><a href=\"http://taloudenperusteet.com/\">Talouden Perusteet</a></li>\r\n    <li><a href=\"http://ciel.fi/\">Centre for Individual and Economic Liberty</a>, nimest\u00e4\u00e4n huolimatta suomenkielinen</li>\r\n    <li><a href=\"http://vapaasana.net/\">Vapaa Sana</a>, yleisliberaali blogi</li>\r\n    <li><a href=\"http://liberaalit.fi/\">Liberaalit RY</a></a>\r\n    <li><a href=\"http://liberalismi.net/\">Liberalismiwiki</a></a>\r\n  </ul>\r\n</div>\r\n\r\n<div style=\"margin-top: 10px;\">\r\n  <h2>Facebookissa</h2>\r\n\r\n  <ul style=\"margin-top: 10px;\">\r\n    <li><a href=\"https://www.facebook.com/pages/Ludwig-von-Mises-Instituutti/191693250871011\">Ludwig von Mises -instituutti</a></li>\r\n    <li><a href=\"https://www.facebook.com/group.php?gid=150569559787\">Liberaalimafia</a>, kokoontumisia Helsingiss\u00e4 ja Turussa</li>\r\n  </ul>\r\n</div>\r\n\r\n<div style=\"margin-top: 10px;\">\r\n  <h2>Englanniksi</h2>\r\n\r\n  <ul style=\"margin-top: 10px;\">\r\n    <li><a href=\"http://reason.com/\">Reason</a>, USA:lainen printtilehti, netiss\u00e4 artikkeleita ja videoita</li>\r\n    <li><a href=\"http://finnisheconomics.blogspot.com/\">Finnish Economics</a></li>\r\n    <li><a href=\"http://seasteading.org/\">Seasteading</a>, kehitt\u00e4v\u00e4t merell\u00e4 asumista</li>\r\n    <li><a href=\"http://unqualified-reservations.blogspot.com/\">Unqualified Reservations</a>, ei v\u00e4ltt\u00e4m\u00e4tt\u00e4 kovin liberaali, mutta silti mielenkiintoinen</li>\r\n  </ul>\r\n</div>\r\n\r\n</div>"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "pages.richtextpage", 
+        "fields": {
+            "content": "<h1>\r\n\tTiedostoja/Media</h1>\r\n<div class=\"file\" style=\"margin-top: 20px;\">\r\n\t<h2>\r\n\t\tPatri Friedman / Helsinki 2011</h2>\r\n\t<div class=\"files_help\" style=\"margin-top: 20px;\">\r\n\t\tJaamme Patri Friedmanin puhetta Helsingiss&auml; 2011 sek&auml; H.264/AAC -muotoisena mkv-tiedostona ett&auml; Xvid/MP3 -muotoisena avi-tiedostona BitTorrent-verkkoa k&auml;ytt&auml;en. MKV-tiedostossa on valittavana sek&auml; englannin- ett&auml; suomenkieliset tekstit ja siin&auml; on kappalejako. Video on testattu eri k&auml;ytt&ouml;j&auml;rjestelmill&auml; mm. <a href=\"http://www.videolan.org/vlc/\">VLC</a>-soittimella toimivaksi.</div>\r\n\t<div class=\"external_link\" style=\"margin-top: 20px;\">\r\n\t\tVideon voi my&ouml;s katsoa Internetiss&auml; osoitteessa <a href=\"http://vimeo.com/mjtorn/seasteading-helsinki-2011\">http://vimeo.com/mjtorn/seasteading-helsinki-2011</a> suomenkielisill&auml; teksteill&auml;.</div>\r\n\t<div class=\"files_list\" style=\"margin-top: 20px;\">\r\n\t\t<ul>\r\n\t\t\t<li>\r\n\t\t\t\t<a href=\"/media/downloads/Patri.Friedman.Seasteading.2011-mises.fi.torrent\">hi-res mkv torrent w/ subs</a> (todenn&auml;k&ouml;isesti haluamanne tiedosto)</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a href=\"/media/downloads/Patri.Friedman.Seasteading.2011.lores-mises.fi.torrent\">lo-res xvid</a> (toimii varmasti kaikkialla, sis&auml;lt&auml;&auml; tekstitykset erillisiss&auml; tiedostoissa)</li>\r\n\t\t\t<li>\r\n\t\t\t\t<a href=\"/media/downloads/patri_friedman.seasteading.2011.misesfi/patri_friedman.seasteading.2011.misesfi.eng_subs.ass\">eng subs</a></li>\r\n\t\t\t<li>\r\n\t\t\t\t<a href=\"/media/downloads/patri_friedman.seasteading.2011.misesfi/patri_friedman.seasteading.2011.misesfi.fin_subs.ass\">fin subs</a></li>\r\n\t\t\t<li>\r\n\t\t\t\t<a href=\"/media/downloads/patri_friedman.seasteading.2011.misesfi/patri_friedman.seasteading.2011.misesfi.nfo\">nfo</a></li>\r\n\t\t</ul>\r\n\t</div>\r\n</div>\r\n"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "pages.richtextpage", 
+        "fields": {
+            "content": "<h1>Mises-instituutin kauppa</h1>\r\n\r\n<div style=\"padding: 10px;\" class=\"main tagline\">\r\nNyt voit yhdist\u00e4\u00e4 Suomen hienoimpien paitojen pit\u00e4misen instituutin tukemiseen ostamalla aitoja Ludwig von Mises -instituutin paitoja!\r\n</div>\r\n\r\n<div style=\"padding: 10px;\">\r\n<a href=\"http://mises.spreadshirt.fi/\">Avaa uuteen ikkunaan</a>\r\n</div>\r\n\r\n<iframe style=\"width: 680px; height: 870px;\" src=\"http://mises.spreadshirt.fi/\">Selaimesi ei tue iframeja. Voit avata kaupan yll\u00e4olevasta linkist\u00e4 uuteen ikkunaan.</iframe>"
+        }
+    }
+]
