@@ -45,6 +45,7 @@ env.manage = "%s/bin/python %s/project/manage.py" % (env.venv_path,
                                                      env.venv_path)
 env.have_sudo = conf.get('HAVE_SUDO', True)
 env.deploy_ssl = conf.get('DEPLOY_SSL', True)
+env.deploy_memcached = conf.get('DEPLOY_MEMCACHED', True)
 env.live_host = conf.get("LIVE_HOSTNAME", env.hosts[0] if env.hosts else None)
 env.repo_url = conf.get("REPO_URL", None)
 env.reqs_path = conf.get("REQUIREMENTS_PATH", None)
@@ -349,7 +350,9 @@ def install():
             run("exit")
     sudo("apt-get update -y -q")
     apt("nginx libjpeg-dev python-dev python-setuptools git-core "
-        "memcached supervisor")
+        "supervisor")
+    if env.deploy_memcached:
+        apt('memcached')
     if env.db_backend == 'postgres':
         apt("postgresql libpq-dev")
     elif env.db_backend == 'sqlite':
@@ -419,7 +422,9 @@ def create():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
         pip("gunicorn setproctitle south "
-            "django-compressor python-memcached")
+            "django-compressor")
+        if env.deploy_memcached:
+            pip('python-memcached')
         if env.db_backend == 'postgres':
             pip('psycopg2')
         manage("createdb --noinput")
