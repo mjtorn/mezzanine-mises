@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+    {% for post in posts %}
+    <div style="margin: 10px;">
+    <h2>{{ post.publish_date }}</h2>
+    <h3>{{ post.user.first_name }} {{ post.user.last_name }}{% if post.blog_post_extra.co_author %} &amp; {{ post.blog_post_extra.co_author.first_name }} {{ post.blog_post_extra.co_author.last_name }}{% endif %}</h3>
+    <br />
+    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </div>
+    {% endfor %}
+{% endblock main %}
+

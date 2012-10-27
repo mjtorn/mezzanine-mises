@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block main %}
+<table>
+    <tr>
+        <th>Käyttäjätunnus</th><td>{{ viewed_user.username }}</td>
+    <tr>
+    </tr>
+        <th>Nimi</th><td>{{ viewed_user.first_name }} {{ viewed_user.last_name }}</td>
+    <tr>
+    {% if post_cont %}
+    </tr>
+        <th>Artikkelien määrä</th><td>{{ post_count }}</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% if user.id == viewed_user.id %}
+{% if email_verification_form %}
+<p>
+    Klikkaa <a href="{% url get_verification_code %}">tästä</a> tilaaksesi vahvistuskoodin sähköpostiin, jotta voit kommentoida kirjoituksia
+    <form method="post" action="">
+    {% csrf_token %}
+    {{ email_verification_form.as_p }}
+    <button type="submit" name="submit">Vahvista koodi</button>
+    </form>
+</p>
+{% endif %}
+{% endif %}
+{% endblock main %}
+
+

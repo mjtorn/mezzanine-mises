@@ -1,0 +1,13 @@
+Hei!
+
+Tervetuloa sivustolle {{ site.name}}! Tässä on vahvistuskoodisi sivulle
+http://{{ site.domain }}/user/{{ user.username }}
+
+{{ code }}
+
+Jos et rekisteröitynyt sivustolle {{ site.name }} ystävällisesti
+jätä tämä viesti huomioimatta.
+
+-- 
+mises staff
+

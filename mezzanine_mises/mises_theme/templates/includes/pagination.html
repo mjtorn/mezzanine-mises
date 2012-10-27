@@ -1,0 +1,31 @@
+{% load i18n %}
+
+{# would be page_obj with django-pagination #}
+{% if current_page.has_previous or current_page.has_next %}
+<div class="pagination">
+    {% if current_page.has_previous %}
+        <a href="?page={{ current_page.previous_page_number }}{{ getvars }}{{ hashtag }}" class="prev">&lsaquo;&lsaquo; {% trans "previous" %}</a>
+    {% else %}
+        <span class="disabled prev">&lsaquo;&lsaquo; {% trans "previous" %}</span>
+    {% endif %}
+    {# for page in pages if using django-pagination, look into it! #}
+    {% for page in current_page.visible_page_range %}
+        {% if page %}
+            {% ifequal page current_page.number %}
+                <span class="current page">{{ page }}</span>
+            {% else %}
+                <a href="?page={{ page }}{{ getvars }}{{ hashtag }}" class="page">{{ page }}</a>
+            {% endifequal %}
+        {% else %}
+            ...
+        {% endif %}
+    {% endfor %}
+    {% if current_page.has_next %}
+        <a href="?page={{ current_page.next_page_number }}{{ getvars }}{{ hashtag }}" class="next">{% trans "next" %} &rsaquo;&rsaquo;</a>
+    {% else %}
+        <span class="disabled next">{% trans "next" %} &rsaquo;&rsaquo;</span>
+    {% endif %}
+</div>
+{% endif %}
+
+

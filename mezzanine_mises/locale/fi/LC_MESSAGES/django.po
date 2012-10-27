@@ -1,0 +1,38 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-27 22:00+0300\n"
+"PO-Revision-Date: 2012-10-27 22:02\n"
+"Last-Translator: Markus Tornqvist <mjt@nysv.org>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.8\n"
+
+#: mises_theme/templates/includes/pagination.html:7
+#: mises_theme/templates/includes/pagination.html:9
+msgid "previous"
+msgstr "edellinen"
+
+#: mises_theme/templates/includes/pagination.html:24
+#: mises_theme/templates/includes/pagination.html:26
+msgid "next"
+msgstr "seuraava"
+
+#: mises_theme/templates/tags/dropdown.html:10
+msgid "Home"
+msgstr "Etusivu"
+
+#: mises_theme/templates/user/login.html:25
+msgid "Log in"
+msgstr "Kirjaudu"

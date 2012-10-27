@@ -1,0 +1,5 @@
+Mezzanine==1.2.4
+south
+django-ckeditor
+django-rosetta
+
