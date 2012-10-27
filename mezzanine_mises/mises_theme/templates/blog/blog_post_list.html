@@ -1,6 +1,24 @@
 {% extends "base.html" %}
 {% load mezzanine_tags %}
+
+{% block extra_head %}
+    <meta property="fb:admins" content="816080216" />    
+{% endblock extra_head %}
+
+{% block sidebar %}
+<script
+src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+<fb:like-box
+href="http://www.facebook.com/pages/Mises-instituutin-stream/155517304512872"
+width="300" show_faces="false" stream="true" header="false"></fb:like-box>
+
+    <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+    <fb:activity site="mises.fi" width="300" height="300" header="true" font="" border_color="" recommendations="false"></fb:activity>
+{% endblock sidebar %}
+
+
 {% block main %}
+<div id="FeaturedArticles">
     {% pagination_for blog_posts %}
                 {% for post in blog_posts.object_list %}
                     <div class="box blogteaser">
@@ -34,5 +52,6 @@
                         </div>
                     </div>
                 {% endfor %}
+</div>
 {% endblock main %}
 
