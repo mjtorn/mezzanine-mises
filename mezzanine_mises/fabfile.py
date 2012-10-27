@@ -287,6 +287,12 @@ def restore(filename):
     """
     return postgres("pg_restore -c -d %s %s" % (env.proj_name, filename))
 
+@task
+def backup_sqlite(filename):
+    """Copy the sqlite file into filename
+    """
+    db_name = python('from django.conf import settings ; print settings.DATABASES["default"]["NAME"])
+    return run('cp -p %s %s' % (db_name, filename))
 
 @task
 def python(code, show=True):
@@ -472,7 +478,7 @@ def deploy():
     for name in get_templates():
         upload_template_and_reload(name)
     with project():
-        backup("last.db")
+        backup_sqlite("last.db")
         run("tar -cf last.tar %s" % static())
         git = env.repo_url.startswith("git")
         run("%s > last.commit" % "git rev-parse HEAD" if git else "hg id -i")
