@@ -214,9 +214,10 @@ def upload_template_and_reload(name):
     owner = template.get("owner")
     mode = template.get("mode")
     remote_data = ""
+    exec_func = sudo if env.have_sudo else run
     if exists(remote_path):
         with hide("stdout"):
-            remote_data = sudo("cat %s" % remote_path, show=False)
+            remote_data = exec_func("cat %s" % remote_path, show=False)
     with open(local_path, "r") as f:
         local_data = f.read()
         if "%(db_pass)s" in local_data:
@@ -225,13 +226,13 @@ def upload_template_and_reload(name):
     clean = lambda s: s.replace("\n", "").replace("\r", "").strip()
     if clean(remote_data) == clean(local_data):
         return
-    upload_template(local_path, remote_path, env, use_sudo=True, backup=False)
+    upload_template(local_path, remote_path, env, use_sudo=env.have_sudo, backup=False)
     if owner:
-        sudo("chown %s %s" % (owner, remote_path))
+        exec_func("chown %s %s" % (owner, remote_path))
     if mode:
-        sudo("chmod %s %s" % (mode, remote_path))
+        exec_func("chmod %s %s" % (mode, remote_path))
     if reload_command:
-        sudo(reload_command)
+        exec_func(reload_command)
 
 
 def db_pass():
@@ -262,7 +263,10 @@ def pip(packages):
     Installs one or more Python packages within the virtual environment.
     """
     with virtualenv():
-        return sudo("pip install %s" % packages)
+        if env.have_sudo:
+            return sudo("pip install %s" % packages)
+        else:
+            return run("pip install %s" % packages)
 
 
 def postgres(command):
@@ -413,8 +417,8 @@ def create():
                     sudo("openssl req -new -x509 -nodes -out %s -keyout %s "
                          "-subj '/CN=%s' -days 3650" % parts)
                 else:
-                    upload_template(crt_file, crt_local, use_sudo=True)
-                    upload_template(key_file, key_local, use_sudo=True)
+                    upload_template(crt_file, crt_local, use_sudo=env.have_sudo)
+                    upload_template(key_file, key_local, use_sudo=env.have_sudo)
 
     # Set up project.
     upload_template_and_reload("settings")
