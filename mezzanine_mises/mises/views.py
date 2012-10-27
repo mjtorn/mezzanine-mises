@@ -4,6 +4,10 @@ from django.shortcuts import render_to_response, get_object_or_404
 
 from django.template import RequestContext
 
+from mezzanine.blog import models
+
+import datetime
+
 def user(request, username):
     """View user
     """
@@ -16,6 +20,21 @@ def user(request, username):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('user/view.html', req_ctx)
+
+def custom_article_list(request):
+    """Deal with article listing
+    """
+
+    now = datetime.datetime.now()
+
+    posts = models.BlogPost.objects.filter(publish_date__lte=now).order_by('-publish_date')
+
+    context = {
+        'posts': posts,
+    }
+    req_ctx = RequestContext(request, context)
+
+    return render_to_response('blog/custom_article_list.html', req_ctx)
 
 # EOF
 
