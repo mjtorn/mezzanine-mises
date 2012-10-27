@@ -7,6 +7,7 @@ from mezzanine.core.views import direct_to_template
 from django.contrib.auth import urls as auth_urls
 
 from mises import views
+from mises import urls as mises_urls
 
 admin.autodiscover()
 
@@ -67,8 +68,7 @@ urlpatterns = patterns("",
     # WILL NEVER BE MATCHED!
 
     (r'^ckeditor/', include('ckeditor.urls')),
-    url('^user/([A-Za-z0-9@]+)', views.user, name='user'),
-
+    url('^', include(mises_urls)),
     url('^', include(auth_urls)),
 
     # If you'd like more granular control over the patterns in
