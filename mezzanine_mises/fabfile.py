@@ -442,17 +442,17 @@ def remove():
     """
     Blow away the current project.
     """
-    if exists(env.venv_path):
-        sudo("rm -rf %s" % env.venv_path)
-    for template in get_templates().values():
-        remote_path = template["remote_path"]
-        if exists(remote_path):
-            sudo("rm %s" % remote_path)
     if env.db_backend == 'postgres':
         psql("DROP DATABASE %s;" % env.proj_name)
         psql("DROP USER %s;" % env.proj_name)
     elif env.db_backend == 'sqlite':
         run('rm -v %s' % db_name())
+    if exists(env.venv_path):
+        run("rm -rf %s" % env.venv_path)
+    for template in get_templates().values():
+        remote_path = template["remote_path"]
+        if exists(remote_path):
+            sudo("rm %s" % remote_path)
 
 
 ##############
