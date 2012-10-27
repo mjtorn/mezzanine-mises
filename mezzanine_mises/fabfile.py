@@ -28,6 +28,7 @@ if sys.argv[0].split(os.sep)[-1] == "fab":
         print "Aborting, no hosts defined."
         exit()
 
+env.db_backend = conf.get("DB_BACKEND", 'postgres')
 env.db_pass = conf.get("DB_PASS", None)
 env.admin_pass = conf.get("ADMIN_PASS", None)
 env.user = conf.get("SSH_USER", getuser())
@@ -235,6 +236,11 @@ def db_pass():
         env.db_pass = getpass("Enter the database password: ")
     return env.db_pass
 
+def db_name():
+    """Get the db name
+    """
+
+    return python('from django.conf import settings ; print settings.DATABASES["default"]["NAME"]')
 
 @task
 def apt(packages):
@@ -291,8 +297,7 @@ def restore(filename):
 def backup_sqlite(filename):
     """Copy the sqlite file into filename
     """
-    db_name = python('from django.conf import settings ; print settings.DATABASES["default"]["NAME"]')
-    return run('cp -p %s %s' % (db_name, filename))
+    return run('cp -p %s %s' % (db_name(), filename))
 
 @task
 def python(code, show=True):
@@ -339,7 +344,11 @@ def install():
             run("exit")
     sudo("apt-get update -y -q")
     apt("nginx libjpeg-dev python-dev python-setuptools git-core "
-        "postgresql libpq-dev memcached supervisor")
+        "memcached supervisor")
+    if env.db_backend == 'postgres':
+        apt("postgresql libpq-dev")
+    elif env.db_backend == 'sqlite':
+        apt("sqlite3")
     sudo("easy_install pip")
     sudo("pip install virtualenv mercurial")
 
@@ -368,15 +377,16 @@ def create():
         run("%s clone %s %s" % (vcs, env.repo_url, env.proj_path))
 
     # Create DB and DB user.
-    pw = db_pass()
-    user_sql_args = (env.proj_name, pw.replace("'", "\'"))
-    user_sql = "CREATE USER %s WITH ENCRYPTED PASSWORD '%s';" % user_sql_args
-    psql(user_sql, show=False)
-    shadowed = "*" * len(pw)
-    print_command(user_sql.replace("'%s'" % pw, "'%s'" % shadowed))
-    psql("CREATE DATABASE %s WITH OWNER %s ENCODING = 'UTF8' "
-         "LC_CTYPE = '%s' LC_COLLATE = '%s' TEMPLATE template0;" %
-         (env.proj_name, env.proj_name, env.locale, env.locale))
+    if env.db_backend == 'postgres':
+        pw = db_pass()
+        user_sql_args = (env.proj_name, pw.replace("'", "\'"))
+        user_sql = "CREATE USER %s WITH ENCRYPTED PASSWORD '%s';" % user_sql_args
+        psql(user_sql, show=False)
+        shadowed = "*" * len(pw)
+        print_command(user_sql.replace("'%s'" % pw, "'%s'" % shadowed))
+        psql("CREATE DATABASE %s WITH OWNER %s ENCODING = 'UTF8' "
+             "LC_CTYPE = '%s' LC_COLLATE = '%s' TEMPLATE template0;" %
+             (env.proj_name, env.proj_name, env.locale, env.locale))
 
     # Set up SSL certificate.
     conf_path = "/etc/nginx/conf"
@@ -436,8 +446,11 @@ def remove():
         remote_path = template["remote_path"]
         if exists(remote_path):
             sudo("rm %s" % remote_path)
-    psql("DROP DATABASE %s;" % env.proj_name)
-    psql("DROP USER %s;" % env.proj_name)
+    if env.db_backend == 'postgres':
+        psql("DROP DATABASE %s;" % env.proj_name)
+        psql("DROP USER %s;" % env.proj_name)
+    elif env.db_backend == 'sqlite':
+        run('rm -v %s' % db_name())
 
 
 ##############
@@ -478,7 +491,10 @@ def deploy():
     for name in get_templates():
         upload_template_and_reload(name)
     with project():
-        backup_sqlite("last.db")
+        if env.db_backend == 'postgres':
+            backup("last.db")
+        else:
+            backup_sqlite("last.db")
         run("tar -cf last.tar %s" % static())
         git = env.repo_url.startswith("git")
         run("%s > last.commit" % "git rev-parse HEAD" if git else "hg id -i")
