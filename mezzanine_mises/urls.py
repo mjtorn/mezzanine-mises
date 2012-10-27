@@ -68,6 +68,7 @@ urlpatterns = patterns("",
     # WILL NEVER BE MATCHED!
 
     (r'^ckeditor/', include('ckeditor.urls')),
+    url('^rosetta/', include('rosetta.urls')),
     url('^', include(mises_urls)),
     url('^', include(auth_urls)),
 
