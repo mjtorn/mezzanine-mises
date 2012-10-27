@@ -43,6 +43,7 @@ env.proj_dirname = "project"
 env.proj_path = "%s/%s" % (env.venv_path, env.proj_dirname)
 env.manage = "%s/bin/python %s/project/manage.py" % (env.venv_path,
                                                      env.venv_path)
+env.have_sudo = conf.get('HAVE_SUDO', True)
 env.deploy_ssl = conf.get('DEPLOY_SSL', True)
 env.live_host = conf.get("LIVE_HOSTNAME", env.hosts[0] if env.hosts else None)
 env.repo_url = conf.get("REPO_URL", None)
@@ -174,8 +175,11 @@ def sudo(command, show=True):
     """
     if show:
         print_command(command)
-    with hide("running"):
-        return _sudo(command)
+    if env.have_sudo:
+        with hide("running"):
+            return _sudo(command)
+    else:
+        _print('Skipping: %s' % command)
 
 
 def log_call(func):
