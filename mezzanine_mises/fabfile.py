@@ -418,8 +418,10 @@ def create():
     with project():
         if env.reqs_path:
             pip("-r %s/%s" % (env.proj_path, env.reqs_path))
-        pip("gunicorn setproctitle south psycopg2 "
+        pip("gunicorn setproctitle south "
             "django-compressor python-memcached")
+        if env.db_backend == 'postgres':
+            pip('psycopg2')
         manage("createdb --noinput")
         python("from django.conf import settings;"
                "from django.contrib.sites.models import Site;"
