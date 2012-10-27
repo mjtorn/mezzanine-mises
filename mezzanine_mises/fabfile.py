@@ -41,7 +41,7 @@ env.venv_home = conf.get("VIRTUALENV_HOME", "/home/%s" % env.user)
 env.venv_path = "%s/%s" % (env.venv_home, env.proj_name)
 env.proj_dirname = "project"
 env.proj_path = "%s/%s" % (env.venv_path, env.proj_dirname)
-env.manage = "%s/bin/python %s/project/manage.py" % (env.venv_path,
+env.manage = "%s/bin/python %s/%s/manage.py" % (env.venv_path, env.proj_path,
                                                      env.venv_path)
 env.have_sudo = conf.get('HAVE_SUDO', True)
 env.deploy_ssl = conf.get('DEPLOY_SSL', True)
