@@ -16,20 +16,6 @@
 
         {% block extra_head %}
         {% endblock extra_head %}
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22074842-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
     </head>
 
     <body class="wideside">
@@ -102,6 +88,22 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                 </div>
             </div>
         </div>
+
+        <footer>
+        <div class="container">
+        {% page_menu "pages/menus/footer.html" %}
+        <br style="clear:both">
+        <p>
+            Powered by
+            <a href="http://mezzanine.jupo.org">Mezzanine</a>
+            and
+            <a href="http://www.djangoproject.com">Django</a>
+        </p>
+        </div>
+        </footer>
+
+        {% include "includes/footer_scripts.html" %}
+
     </body>
 </html>
 
