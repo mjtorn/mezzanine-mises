@@ -1,6 +1,6 @@
 from django.contrib.auth import models as auth_models
 
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import redirect, render_to_response, get_object_or_404
 
 from django.template import RequestContext
 
@@ -35,6 +35,16 @@ def custom_article_list(request):
     req_ctx = RequestContext(request, context)
 
     return render_to_response('blog/custom_article_list.html', req_ctx)
+
+def post(request, post_id, slug=None):
+    """Redirect to a better place
+    """
+
+    now = datetime.datetime.now()
+
+    blog_post = get_object_or_404(models.BlogPost, status=2, publish_date__lte=now, id=post_id)
+
+    return redirect(blog_post.get_absolute_url())
 
 # EOF
 
