@@ -505,7 +505,7 @@ def restart():
         start_args = (env.proj_name, env.proj_name)
         sudo("supervisorctl start %s:gunicorn_%s" % start_args)
     else:
-        run('pkill -u %s gunicorn' % env.user)
+        run('pkill -u %s python' % env.user)
 
 
 @task
