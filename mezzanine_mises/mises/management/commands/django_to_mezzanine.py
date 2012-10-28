@@ -35,9 +35,9 @@ class Command(BaseCommand):
         print 'Transferring "%s" -> "%s"' % (from_model, to_model)
         from_obs = from_model.objects.using(from_db).all().order_by('id')
         for fob in from_obs:
-            kwargs = {
-                fmap.get(field_name, field_name): getattr(fob, field_name) for field_name in field_names
-            }
+            kwargs = dict(
+                [(fmap.get(field_name, field_name), getattr(fob, field_name)) for field_name in field_names]
+            )
 
             deferred = {}
             rel = None
