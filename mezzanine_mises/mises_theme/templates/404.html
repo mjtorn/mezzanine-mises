@@ -35,7 +35,7 @@
         <div id="header">
             <div class="container">
                 <h1 class="logo">
-                    <a href="{% url index %}">Ludwig von Mises -Instituutti</a>
+                    <a href="{% url home %}">Ludwig von Mises -Instituutti</a>
                 </h1>
                 <p class="title" style="left: 136px;">
                     Ludwig von Mises -Instituutti
@@ -51,7 +51,7 @@
                     {# this will be the current front page when we have more than blogs #}
                     {% comment %}
                     <li id="ctl00_ctl00_lnkABlog">
-                        <a href="{% url index %}">Blog</a>
+                        <a href="{% url home %}">Blog</a>
                     </li>
                     {% endcomment %}
                 </ul>
@@ -62,7 +62,7 @@
             <div id="content">
                 <h1>Hakemaanne sivua ei löydy.</h1>
                 <p>
-                    Suosittelemme selaamaan <a href="{% url index %}">etusivun</a> kautta.
+                    Suosittelemme selaamaan <a href="{% url home %}">etusivun</a> kautta.
                 </p>
             </div>
         </div>
