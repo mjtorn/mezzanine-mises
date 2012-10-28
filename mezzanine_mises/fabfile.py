@@ -538,7 +538,7 @@ def deploy():
         manage("collectstatic -v 0 --noinput")
         manage("syncdb --noinput")
         manage("migrate --noinput")
-        manage("compilemessages --noinput")
+        manage("compilemessages")
     restart()
     return True
 
