@@ -1,3 +1,7 @@
+ADMINS = (
+    ('Markus Tornqvust', 'mjt@mises.fi'),
+)
+MANAGERS = ADMINS
 
 DATABASES = {
     "default": {
