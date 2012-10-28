@@ -148,7 +148,7 @@ def update_changed_requirements():
             else:
                 # All requirements are pinned.
                 return
-        pip("-r %s/%s" % (env.proj_path, env.reqs_path))
+        pip("-r %s" % reqs_path)
 
 
 ###########################################
