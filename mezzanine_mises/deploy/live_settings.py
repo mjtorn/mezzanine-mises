@@ -33,5 +33,11 @@ DATE_FORMAT = 'l j.m.Y.'
 TIME_FORMAT = 'h:i'
 DATETIME_FORMAT = 'j.m.Y. h:i'
 
+STATIC_ROOT = '/var/www/mises.fi/static'
+MEDIA_ROOT = '/var/www/mises.fi/static/media'
+STATIC_URL = "/static/"
+MEDIA_URL = STATIC_URL + "media/"
+CKEDITOR_UPLOAD_PATH = MEDIA_ROOT + '/upload/'
+
 # EOF
 
