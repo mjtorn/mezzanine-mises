@@ -501,9 +501,11 @@ def restart():
     pid_path = "%s/gunicorn.pid" % env.proj_path
     if exists(pid_path):
         sudo("kill -HUP `cat %s`" % pid_path)
-    else:
+    elif env.have_sudo:
         start_args = (env.proj_name, env.proj_name)
         sudo("supervisorctl start %s:gunicorn_%s" % start_args)
+    else:
+        run('pkill -u %s gunicorn' % env.user)
 
 
 @task
