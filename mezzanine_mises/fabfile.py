@@ -70,25 +70,30 @@ templates = {
         "local_path": "deploy/nginx.conf",
         "remote_path": "/etc/nginx/sites-enabled/%(proj_name)s.conf",
         "reload_command": "service nginx restart",
+        'require_sudo': '1',
     },
     "supervisor": {
         "local_path": "deploy/supervisor.conf",
         "remote_path": "/etc/supervisor/conf.d/%(proj_name)s.conf",
         "reload_command": "supervisorctl reload",
+        'require_sudo': '1',
     },
     "cron": {
         "local_path": "deploy/crontab",
         "remote_path": "/etc/cron.d/%(proj_name)s",
         "owner": "root",
         "mode": "600",
+        'require_sudo': '1',
     },
     "gunicorn": {
         "local_path": "deploy/gunicorn.conf.py",
         "remote_path": "%(proj_path)s/gunicorn.conf.py",
+        'require_sudo': '1',
     },
     "settings": {
         "local_path": "deploy/live_settings.py",
         "remote_path": "%(pkg_path)s/local_settings.py",
+        'require_sudo': '0',
     },
 }
 
@@ -217,6 +222,7 @@ def upload_template_and_reload(name):
     reload_command = template.get("reload_command")
     owner = template.get("owner")
     mode = template.get("mode")
+    require_sudo = template.get('require_sudo', '1')
     remote_data = ""
     exec_func = sudo if env.have_sudo else run
     if exists(remote_path):
@@ -230,13 +236,14 @@ def upload_template_and_reload(name):
     clean = lambda s: s.replace("\n", "").replace("\r", "").strip()
     if clean(remote_data) == clean(local_data):
         return
-    upload_template(local_path, remote_path, env, use_sudo=env.have_sudo, backup=False)
-    if owner:
-        exec_func("chown %s %s" % (owner, remote_path))
-    if mode:
-        exec_func("chmod %s %s" % (mode, remote_path))
-    if reload_command:
-        exec_func(reload_command)
+    if require_sudo == '0' or env.have_sudo:
+        upload_template(local_path, remote_path, env, use_sudo=env.have_sudo, backup=False)
+        if owner:
+            exec_func("chown %s %s" % (owner, remote_path))
+        if mode:
+            exec_func("chmod %s %s" % (mode, remote_path))
+        if reload_command:
+            exec_func(reload_command)
 
 
 def db_pass():
