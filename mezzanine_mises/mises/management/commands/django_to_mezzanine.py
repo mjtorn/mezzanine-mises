@@ -99,10 +99,11 @@ class Command(BaseCommand):
             'site_id': 1,
         }
 
-        def mangle_image_path(post):
-            """Callback to fix post paths
+        def fix_post(post):
+            """Callback to fix post paths and publication
             """
 
+            ## Paths
             # Always save, see if that creates thumbnails
             if post.featured_image is not None:
                 upload_idx = post.featured_image.path.find('upload')
@@ -121,7 +122,11 @@ class Command(BaseCommand):
 
                 assert post.featured_image.exists(), 'Not found: %s' % post.featured_image.path
 
-        self._tx(dmb_models.Post, blog_models.BlogPost, fmap=blogmap, extras=blogextras, cb=mangle_image_path)
+            ## Publication status
+            if not post.publish_date:
+                post.status = 1
+
+        self._tx(dmb_models.Post, blog_models.BlogPost, fmap=blogmap, extras=blogextras, cb=fix_post)
 
 # EOF
 
