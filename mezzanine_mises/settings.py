@@ -362,6 +362,8 @@ CKEDITOR_UPLOAD_PATH = '%s/upload/' % MEDIA_ROOT
 DEFAULT_FROM_ADDRESS = 'staff@mises.fi'
 DEFAULT_FROM_EMAIL = 'staff@mises.fi'
 
+SITE_TITLE = 'Ludwig von Mises -instituutti'
+
 ##################
 # LOCAL SETTINGS #
 ##################
