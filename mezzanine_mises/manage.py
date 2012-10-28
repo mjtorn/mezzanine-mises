@@ -3,6 +3,10 @@
 import os
 import sys
 
+activate = os.path.join('..', '..', 'bin', 'activate_this.py')
+if os.path.exists(activate):
+    execfile(activate, dict(__file__=activate))
+
 
 # Corrects some pathing issues in various contexts, such as cron jobs,
 # and the project layout still being in Django 1.3 format.
