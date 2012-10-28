@@ -86,12 +86,16 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
                     <p>Yhteydenotot: <a href="mailto:staff@mises.fi">staff@mises.fi</a></p>
                     <p><a href="/rss.xml"><img src="{{ STATIC_URL }}images/rss.jpg" alt="rss" /></a></p>
                 </div>
+                {% comment %}
+                <div>
+                    {% page_menu "pages/menus/footer.html" %}
+                </div>
+                {% endcomment %}
             </div>
         </div>
 
         <footer>
         <div class="container">
-        {% page_menu "pages/menus/footer.html" %}
         <br style="clear:both">
         <p>
             Powered by
