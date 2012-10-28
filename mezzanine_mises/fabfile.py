@@ -122,7 +122,7 @@ def update_changed_requirements():
     Checks for changes in the requirements file across an update,
     and gets new requirements if changes have occurred.
     """
-    reqs_path = os.path.join(env.proj_path, env.reqs_path)
+    reqs_path = os.path.join(env.proj_path, env.proj_name, env.reqs_path)
     get_reqs = lambda: run("cat %s" % reqs_path, show=False)
     old_reqs = get_reqs() if env.reqs_path else ""
     yield
@@ -427,7 +427,8 @@ def create():
     upload_template_and_reload("settings")
     with project():
         if env.reqs_path:
-            pip("-r %s/%s" % (env.proj_path, env.reqs_path))
+            reqs_path = os.path.join(env.proj_path, env.proj_name, env.reqs_path)
+            pip("-r %s" % reqs_path)
         pip("gunicorn setproctitle south "
             "django-compressor")
         if env.deploy_memcached:
