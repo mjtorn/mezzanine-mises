@@ -1,4 +1,4 @@
-{% load misesfilters %}
+{% load misesfilters i18n %}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
@@ -46,14 +46,9 @@
                 </p>
                 {% include "tags/usernav.html" %}
                 <ul id="navigation">
-                    {% nav "index" "Etusivu" %}
-                    {% nav "info" "Tietoa" %}
-                    {# this will be the current front page when we have more than blogs #}
-                    {% comment %}
                     <li id="ctl00_ctl00_lnkABlog">
-                        <a href="{% url home %}">Blog</a>
+                        <a href="{% url home %}">{% trans "Home" %}</a>
                     </li>
-                    {% endcomment %}
                 </ul>
             </div>
         </div>
