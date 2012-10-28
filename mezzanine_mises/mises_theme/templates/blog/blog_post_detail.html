@@ -14,7 +14,7 @@
 
 {% block extra_head %}
 <!-- OG -->
-    <meta property="og:title" content="Mises-Instituutti{% if title %} · {{ title }}{% endif %}" />
+    <meta property="og:title" content="{{ settings.SITE_TITLE }}{% if blog_post.meta_title %} · {{ blog_post.meta_title }}{% endif %}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://{{ site.domain }}{{ blog_post.get_absolute_url }}" />
     <meta property="og:description" content="{{ blog_post.description }}" />
