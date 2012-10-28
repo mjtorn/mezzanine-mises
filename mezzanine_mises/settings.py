@@ -261,6 +261,7 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     #"mezzanine.accounts",
     #"mezzanine.mobile",
+    'gunicorn',
     'rosetta',
     'south',
     'ckeditor',
