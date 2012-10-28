@@ -258,7 +258,10 @@ def db_name():
     """Get the db name
     """
 
-    return python('from django.conf import settings ; print settings.DATABASES["default"]["NAME"]')
+    ## Take only the last line because ADMIN_MEDIA_PREFIX screws things over
+    ret = python('from django.conf import settings ; print settings.DATABASES[\'default\'][\'NAME\']')
+    lines = ret.splitlines()
+    return lines[-1]
 
 @task
 def apt(packages):
@@ -336,8 +339,11 @@ def static():
     """
     Returns the live STATIC_ROOT directory.
     """
-    return python("from django.conf import settings;"
+    ## Strip out ADMIN_MEDIA_PREFIX
+    ret = python("from django.conf import settings;"
                   "print settings.STATIC_ROOT")
+    lines = ret.splitlines()
+    return lines[-1]
 
 
 @task
