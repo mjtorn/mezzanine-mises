@@ -55,6 +55,12 @@ class Command(BaseCommand):
             if cb is not None:
                 cb(tob)
 
+            ## TO WAR
+            # Mezzanine forces a publish_date so hack it
+            if kwargs.has_key('publish_date') and kwargs['publish_date'] is None:
+                tob.status = 1
+                tob.save()
+
             if deferred:
                 rel_ob = getattr(tob, rel)
                 for k, v in deferred.items():
