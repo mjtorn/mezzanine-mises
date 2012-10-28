@@ -44,6 +44,7 @@ env.venv_name = conf.get("VIRTUALENV_NAME", _cwd_name) or _cwd_name
 env.venv_path = "%s/%s" % (env.venv_home, env.venv_name)
 env.proj_dirname = "project"
 env.proj_path = "%s/%s" % (env.venv_path, env.proj_dirname)
+env.pkg_path = "%s/%s/%s" % (env.venv_path, env.proj_dirname, env.proj_name)
 env.manage = "%s/bin/python %s/%s/%s/manage.py" % (env.venv_path, env.venv_path,
                                                      env.proj_dirname, env.proj_name)
 env.have_sudo = conf.get('HAVE_SUDO', True)
@@ -87,7 +88,7 @@ templates = {
     },
     "settings": {
         "local_path": "deploy/live_settings.py",
-        "remote_path": "%(proj_path)s/local_settings.py",
+        "remote_path": "%(pkg_path)s/local_settings.py",
     },
 }
 
@@ -112,7 +113,7 @@ def project():
     Runs commands within the project's directory.
     """
     with virtualenv():
-        with cd(env.proj_dirname):
+        with cd(env.pkg_path):
             yield
 
 
