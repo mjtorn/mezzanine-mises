@@ -28,7 +28,7 @@
 {% endblock extra_head %}
 
 {% block title %}
-{% editable blog_post.title %}<h1>{{ blog_post.title }}</h1>{% endeditable %}
+{% editable blog_post.title %}<h1>{% if blog_post.status == 1 %}Julkaisematon: {% endif %}{{ blog_post.title }}</h1>{% endeditable %}
 {% endblock %}
 
 {% block breadcrumb_menu %}
