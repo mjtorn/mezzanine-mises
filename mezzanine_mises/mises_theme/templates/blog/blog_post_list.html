@@ -2,7 +2,7 @@
 {% load mezzanine_tags %}
 
 {% block extra_head %}
-    <meta property="fb:admins" content="816080216" />    
+    <meta property="fb:admins" content="816080216" />
 {% endblock extra_head %}
 
 {% block sidebar %}
@@ -27,12 +27,13 @@ width="300" show_faces="false" stream="true" header="false"></fb:like-box>
 <a href="/dailyarticles.xml" title="Subscribe to Mises Institute Daily Articles" class="rss">rss</a>
                             -->
                             <h2>
-                                <a href="{{ post.get_absolute_url }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkTitle">{{ post.title }}</a>
+                                {% if post.status == 1 %}Julkaisematon: {% endif %}<a href="{{ post.get_absolute_url }}" id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkTitle">{{ post.title }}</a>
                             </h2>
                             <p class="author">
                                 {{ post.publish_at|date|capfirst }}
                                 kirjoittanut
                                 <a id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkAuthor" href="{% url user post.user.username %}">{{ post.user.first_name }} {{ post.user.last_name }}</a>
+                                {% if post.status == 1 %} (vedoksissa){% endif %}
                             </p>
                             {% if post.featured_image %}
                             <div class="bord-se">
