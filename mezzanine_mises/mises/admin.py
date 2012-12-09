@@ -8,7 +8,11 @@ class PermissionAdmin(admin.ModelAdmin):
         """Return items based on request
         """
 
-        qs = super(PermissionAdmin, self).queryset(request)
+        qs = self.model._default_manager.get_query_set()
+
+        ordering = self.get_ordering(request)
+        if ordering:
+            qs = qs.order_by(*ordering)
 
         if request.user.is_superuser:
             return qs
