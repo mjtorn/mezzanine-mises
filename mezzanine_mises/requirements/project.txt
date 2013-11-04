@@ -3,3 +3,9 @@ south
 django-ckeditor
 django-rosetta
 
+gunicorn
+
+-e git+git://github.com/mjtorn/mezzanine-custperm.git#egg=mezzanine-custperm
+
+-e git+ssh://git@github.com/mjtorn/mezzanine-mises.git#egg=mezzamises
+
