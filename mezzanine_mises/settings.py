@@ -393,6 +393,12 @@ LOGGING = {
     }
 }
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'theme': 'django',
+    }
+}
+
 ##################
 # LOCAL SETTINGS #
 ##################
