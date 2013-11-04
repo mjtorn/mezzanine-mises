@@ -242,6 +242,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
 INSTALLED_APPS = (
     'mises_theme',
+    'mezzacustperm',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -363,6 +364,10 @@ DEFAULT_FROM_ADDRESS = 'staff@mises.fi'
 DEFAULT_FROM_EMAIL = 'staff@mises.fi'
 
 SITE_TITLE = 'Ludwig von Mises -instituutti'
+
+CUSTOM_PERMISSIONS = (
+    ('mezzanine.blog.admin.BlogPostAdmin', 'mises.utils.custom_permissions.allow_editors'),
+)
 
 ##################
 # LOCAL SETTINGS #
