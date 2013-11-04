@@ -1,9 +1,9 @@
-Mezzanine
-south
-django-ckeditor
-django-rosetta
+Mezzanine==1.4.16
+south==0.8.3
+django-ckeditor==4.0.2
+django-rosetta==0.7.2
 
-gunicorn
+gunicorn==18.0
 
 -e git+git://github.com/mjtorn/mezzanine-custperm.git#egg=mezzanine-custperm
 
