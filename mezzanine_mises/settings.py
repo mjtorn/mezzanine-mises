@@ -395,7 +395,7 @@ LOGGING = {
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'theme': 'django',
+        'skin': 'django',
     }
 }
 
