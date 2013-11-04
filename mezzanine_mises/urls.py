@@ -69,7 +69,7 @@ urlpatterns = patterns("",
 
     (r'^ckeditor/', include('ckeditor.urls')),
     url('^rosetta/', include('rosetta.urls')),
-    url('^', include(mises_urls)),
+    url('^', include(mises_urls, namespace='mises')),
     url('^', include(auth_urls)),
 
     # If you'd like more granular control over the patterns in
