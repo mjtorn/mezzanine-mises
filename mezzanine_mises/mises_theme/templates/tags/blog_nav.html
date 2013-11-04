@@ -4,9 +4,9 @@
             <a id="blog_previous" href="{% url 'mises:post' previous %}">&laquo; Edellinen</a>
     </li>
     <li>
-            <a id="blog_index" href="{% url 'mises:home' %}">Blog</a>
+            <a id="blog_index" href="{% url 'home' %}">Blog</a>
         {% else %}
-            <a id="blog_index" href="{% url 'mises:home' %}">Blog</a>
+            <a id="blog_index" href="{% url 'home' %}">Blog</a>
     </li>
         {% endif %}
 
