@@ -1,7 +1,7 @@
 <ul class="usernav">
     <li class="first">
         {% if user.id %}
-        <a href="{% url user user.username %}">Oma profiili</a>
+        <a href="{% url 'mises:user' user.username %}">Oma profiili</a>
         {% else %}
         <a href="#" style="text-decoration: line-through;">Rekisteröidy</a>
         {% endif %}
@@ -13,7 +13,7 @@
     {% endif %}
     <li>
         {% if user.id %}
-        <a href="{% url logout %}">Kirjaudu ulos</a>
+        <a href="{% url 'mises:logout' %}">Kirjaudu ulos</a>
         {% else %}
         <a href="" style="text-decoration: line-through;">Kirjaudu</a>
         {% endif %}

@@ -34,7 +34,7 @@ width="300" show_faces="false" stream="true" header="false"></fb:like-box>
                             <p class="author">
                                 {{ post.publish_at|date|capfirst }}
                                 kirjoittanut
-                                <a id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkAuthor" href="{% url user post.user.username %}">{{ post.user.first_name }} {{ post.user.last_name }}</a>
+                                <a id="ctl00_ctl00_ContentPlaceHolder1_ContentPlaceHolder1_FeaturedArticle1_rptFeaturedArticle_ctl00_lnkAuthor" href="{% url 'mises:user' post.user.username %}">{{ post.user.first_name }} {{ post.user.last_name }}</a>
                                 {% if post.status == 1 %} (vedoksissa){% endif %}
                             </p>
                             {% if post.featured_image %}

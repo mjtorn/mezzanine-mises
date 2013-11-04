@@ -35,7 +35,7 @@
         <div id="header">
             <div class="container">
                 <h1 class="logo">
-                    <a href="{% url home %}">Ludwig von Mises -Instituutti</a>
+                    <a href="{% url 'mises:home' %}">Ludwig von Mises -Instituutti</a>
                 </h1>
                 <p class="title" style="left: 136px;">
                     Ludwig von Mises -Instituutti
@@ -47,7 +47,7 @@
                 {% include "tags/usernav.html" %}
                 <ul id="navigation">
                     <li id="ctl00_ctl00_lnkABlog">
-                        <a href="{% url home %}">{% trans "Home" %}</a>
+                        <a href="{% url 'mises:home' %}">{% trans "Home" %}</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@
             <div id="content">
                 <h1>Hakemaanne sivua ei löydy.</h1>
                 <p>
-                    Suosittelemme selaamaan <a href="{% url home %}">etusivun</a> kautta.
+                    Suosittelemme selaamaan <a href="{% url 'mises:home' %}">etusivun</a> kautta.
                 </p>
             </div>
         </div>
