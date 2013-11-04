@@ -13,7 +13,7 @@
     {% endif %}
     <li>
         {% if user.id %}
-        <a href="{% url 'mises:logout' %}">Kirjaudu ulos</a>
+        <a href="{% url 'logout' %}">Kirjaudu ulos</a>
         {% else %}
         <a href="" style="text-decoration: line-through;">Kirjaudu</a>
         {% endif %}
