@@ -1,21 +1,12 @@
 <ul class="usernav">
-    <li class="first">
-        {% if user.id %}
-        <a href="{% url 'mises:user' user.username %}">Oma profiili</a>
-        {% else %}
-        <a href="#" style="text-decoration: line-through;">Rekisteröidy</a>
-        {% endif %}
-    </li>
     {% if user.is_staff %}
-    <li>
+    <li class="first">
         <a href="{% url 'admin:index' %}">Ylläpito</a>
     </li>
     {% endif %}
     <li>
         {% if user.id %}
         <a href="{% url 'logout' %}">Kirjaudu ulos</a>
-        {% else %}
-        <a href="" style="text-decoration: line-through;">Kirjaudu</a>
         {% endif %}
     </li>
 </ul>
